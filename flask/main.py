@@ -60,3 +60,7 @@ def logout():
             quote_via=quote_plus,
         )
     )
+
+@app.route("/test")
+def test():
+    return "test"
