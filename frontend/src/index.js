@@ -11,8 +11,8 @@ root.render(
 		domain="dev-6xmqy5r4.us.auth0.com"
 		clientId="hK36rdDHclqkE2mtllWVxcoYSWkzIOaM"
 		redirectUri="http://localhost:3000"
-    audience="https://dev-6xmqy5r4.us.auth0.com/api/v2/"
-    scope="read:current_user update:current_user_metadata"
+		audience="https://dev-6xmqy5r4.us.auth0.com/api/v2/"
+		scope="read:current_user update:current_user_metadata"
 	>
 		<React.StrictMode>
 			<App />
