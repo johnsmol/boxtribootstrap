@@ -3,6 +3,7 @@ import "./App.css";
 import LoginButton from "./LoginButton";
 import Profile from "./Profile";
 import LogoutButton from "./LogoutButton";
+import TestButton from "./components/testButton/TestButton";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 				<LoginButton></LoginButton>
 				<Profile></Profile>
 				<LogoutButton></LogoutButton>
+				<TestButton></TestButton>
 			</header>
 		</div>
 	);

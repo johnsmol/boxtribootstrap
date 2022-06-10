@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<Auth0Provider
 		domain="dev-6xmqy5r4.us.auth0.com"
-		clientId="hK36rdDHclqkE2mtllWVxcoYSWkzIOaM"
-		redirectUri="http://localhost:3000"
+		clientId="bTbMvn4McdqWHb3f6MhRhFORCGw8NDRc"
+		redirectUri="http://localhost:3000/callback"
 		audience="https://dev-6xmqy5r4.us.auth0.com/api/v2/"
 		scope="read:current_user update:current_user_metadata"
 	>

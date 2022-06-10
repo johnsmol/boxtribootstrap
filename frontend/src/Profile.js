@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import "./Profile.css";
 
 const Profile = () => {
 	const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
@@ -42,13 +43,15 @@ const Profile = () => {
 
 	return (
 		isAuthenticated && (
-			<div>
+			<div className="Profile">
 				<img src={user.picture} alt={user.name} />
-				<h2>{user.name}</h2>
+				<h4>{user.name}</h4>
 				<p>{user.email}</p>
-				<h3>User Metadata</h3>
+				<h5>User Metadata</h5>
 				{userMetadata ? (
-					<pre>{JSON.stringify(userMetadata, null, 2)}</pre>
+					<pre>
+						<p>{JSON.stringify(userMetadata, null, 2)}</p>
+					</pre>
 				) : (
 					"No user metadata defined"
 				)}
