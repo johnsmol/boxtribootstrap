@@ -1,6 +1,16 @@
 version: 2.1
 
 jobs:
+  # checkout
+  checkout-to-workspace:
+    docker:
+      - image: cimg/python:3.8.12-node
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   # flask
   build-flask:
     docker:
@@ -44,11 +54,16 @@ workflows:
   # build workflow
   build_workflow:
     jobs:
+      - checkout-to-workspace
       - build-flask:
+          requires:
+            - checkout-to-workspace
           filters:
             branches:
               only: master
       - build-react:
+          requires:
+            - checkout-to-workspace
           filters:
             branches:
               only: master
