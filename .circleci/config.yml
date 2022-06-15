@@ -15,8 +15,9 @@ jobs:
   build-flask:
     docker:
       - image: cimg/python:3.8.12
-    working_directory: ~/flask
+    working_directory: ./flask
     steps:
+      - checkout
       - run:
           name: create the python virtual environment and install non-cached dependencies
           command: |
@@ -35,8 +36,9 @@ jobs:
   build-react:
     docker:
       - image: cimg/python:3.8.12-node
-    working_directory: ~/frontend
+    working_directory: ./frontend
     steps:
+      - checkout
       - run:
           name: Install Yarn Packages
           command: yarn install --immutable
