@@ -15,9 +15,11 @@ jobs:
   build-flask:
     docker:
       - image: cimg/python:3.8.12
-    working_directory: ./flask
+    working_directory: ~/flask
     steps:
       - checkout
+      - attach_workspace:
+          at: ~/
       - run:
           name: Install Python deps in a venv
           command: |
@@ -28,9 +30,11 @@ jobs:
   build-react:
     docker:
       - image: cimg/python:3.8.12-node
-    working_directory: ./frontend
+    working_directory: ~/frontend
     steps:
       - checkout
+      - attach_workspace:
+          at: ~/
       - run:
           name: Install Yarn Packages
           command: yarn install --immutable
