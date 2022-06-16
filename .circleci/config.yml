@@ -19,19 +19,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: create the python virtual environment and install non-cached dependencies
+          name: Install Python deps in a venv
           command: |
-            pyenv root
-            python --version
-            pyenv virtualenvs
-            pyenv virtualenv --force env
-            source $(pyenv root)/versions/3.8.12/envs/env/bin/activate
-            pip install -e . -r requirements.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - flask/*
-            - .pyenv/versions/3.8.12/envs
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements/dev.txt
   # react
   build-react:
     docker:
