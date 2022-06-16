@@ -47,6 +47,19 @@ jobs:
           paths:
             - frontend/build
   # deploy
+  deploy:
+    docker:
+      - image: google/cloud-sdk:slim
+    steps:
+      - run:
+          name: deploy to app engine
+          command: |
+            echo ${GCLOUD_SERVCE_KEY} | > /tmp/sa_key.json
+            gcloud auth activate-service-account --key-file=/tmp/sa_key.json
+            rm /tmp/sa_key.json
+            gcloud config set project boxtribootstrap
+            gcloud config set compute/zone europe-west8-a
+            gcloud app deploy
 
 workflows:
   # build workflow
@@ -62,6 +75,14 @@ workflows:
       - build-react:
           requires:
             - checkout-to-workspace
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - checkout-to-workspace
+            - build-flask
+            - build-react
           filters:
             branches:
               only: master
