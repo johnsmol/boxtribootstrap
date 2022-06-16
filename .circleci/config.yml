@@ -51,6 +51,8 @@ jobs:
     docker:
       - image: google/cloud-sdk:slim
     steps:
+      - attach_workspace:
+          at: ~/
       - run:
           name: deploy to app engine
           command: |
