@@ -1,7 +1,7 @@
 runtime: python310 # or another supported version
-
+env: standard
+entrypoint: gunicorn -b :$PORT
 instance_class: F1
-
 handlers:
   - url: /.*
     secure: always
