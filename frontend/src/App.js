@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import LoginButton from "./components/loginButton/LoginButton";
 import Profile from "./components/profile/Profile";
